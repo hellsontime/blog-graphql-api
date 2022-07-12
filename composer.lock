@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "624cb6432d82a8496c95667650b439bc",
+    "content-hash": "dd9ca44fd33062ff620469e86e9b4928",
     "packages": [
         {
             "name": "brick/math",
@@ -2171,16 +2171,16 @@
         },
         {
             "name": "nuwave/lighthouse",
-            "version": "v5.56.0",
+            "version": "v5.57.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nuwave/lighthouse.git",
-                "reference": "ec52890d667addd4e3e3bd18f2327939e8da737e"
+                "reference": "77fb645de4d58622a515b5ff7575c3df96e768f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/ec52890d667addd4e3e3bd18f2327939e8da737e",
-                "reference": "ec52890d667addd4e3e3bd18f2327939e8da737e",
+                "url": "https://api.github.com/repos/nuwave/lighthouse/zipball/77fb645de4d58622a515b5ff7575c3df96e768f1",
+                "reference": "77fb645de4d58622a515b5ff7575c3df96e768f1",
                 "shasum": ""
             },
             "require": {
@@ -2298,7 +2298,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-04T13:52:49+00:00"
+            "time": "2022-07-08T08:50:28+00:00"
         },
         {
             "name": "phpoption/phpoption",
