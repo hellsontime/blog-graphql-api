@@ -5,9 +5,67 @@ extend type Query {
 
 extend type Mutation {
     createPost(
-        title: String!,
-        content: String!,
+        title: String!
+        @rules(
+            apply: ["max:32"],
+            messages: [{
+                rule: "max"
+                message: "Title must not be longer than 32 characters"
+            }]
+        ),
+        content: String!
+        @rules(
+            apply: ["max:4096"],
+            messages: [{
+                rule: "max"
+                message: "Content must not be longer than 4096 characters"
+            }]
+        ),
     ) : Post! @create
+
+    updatePost(
+        id: ID!,
+        title: String,
+        @rules(
+            apply: ["max:32"],
+            messages: [{
+                rule: "max"
+                message: "Title must not be longer than 32 characters"
+            }]
+        ),
+        content: String,
+        @rules(
+            apply: ["max:4096"],
+            messages: [{
+                rule: "max"
+                message: "Content must not be longer than 4096 characters"
+            }]
+        ),
+        author: User,
+    ) : Post! @update
+
+    deletePost(id: ID!) : Post @delete
+
+    upsertPost(
+        id: ID!
+        title: String!,
+        @rules(
+            apply: ["max:32"],
+            messages: [{
+                rule: "max"
+                message: "Title must not be longer than 32 characters"
+            }]
+        ),
+        content: String!,
+        @rules(
+            apply: ["max:4096"],
+            messages: [{
+                rule: "max"
+                message: "Content must not be longer than 4096 characters"
+            }]
+        ),
+        author: User!,
+    ) : Post! @upsert
 }
 
 type Post {
