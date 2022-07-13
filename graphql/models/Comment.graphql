@@ -1,3 +1,47 @@
+extend type Query {
+    comments: [Comment!]! @paginate(defaultCount: 10)
+    comment(id: ID! @eq): Comment @find
+}
+
+extend type Mutation {
+    createComment(
+        reply: String!,
+        @rules(
+            apply: ["max:140"],
+            messages: [{
+                rule: "max"
+                message: "Reply must not be longer than 140 characters"
+            }]
+        )
+    ) : Comment! @create
+
+    updateComment(
+        id: ID!,
+        reply: String,
+        @rules(
+            apply: ["max:140"],
+            messages: [{
+                rule: "max"
+                message: "Reply must not be longer than 140 characters"
+            }]
+        )
+    ) : Comment! @update
+
+    deleteComment(id: ID!) : Comment @delete
+
+    upsertComment(
+        id: ID!
+        reply: String!,
+        @rules(
+            apply: ["max:140"],
+            messages: [{
+                rule: "max"
+                message: "Reply must not be longer than 140 characters"
+            }]
+        )
+    ) : Comment! @upsert
+}
+
 type Comment {
     id: ID!
     reply: String!
